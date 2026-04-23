@@ -1,0 +1,89 @@
+/* Full screen hero */
+.home {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  padding: 20px;
+}
+
+/* Content container */
+.home-content {
+  max-width: 700px;
+  text-align: center;
+}
+
+/* Headings */
+.home-content h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+.home-content h2 {
+  font-size: 24px;
+  margin: 10px 0;
+  color: #38bdf8;
+}
+
+/* Paragraph */
+.home-content p {
+  margin: 15px auto;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #cbd5f5;
+}
+
+/* Buttons container */
+.home-buttons {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.home-buttons button {
+  padding: 12px 25px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* Primary button */
+.home-buttons button:first-child {
+  background-color: #38bdf8;
+  color: black;
+}
+
+/* Secondary button */
+.home-buttons button:last-child {
+  background-color: transparent;
+  border: 1px solid #38bdf8;
+  color: #38bdf8;
+}
+
+/* Hover effects */
+.home-buttons button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .home-content h1 {
+    font-size: 32px;
+  }
+
+  .home-content h2 {
+    font-size: 18px;
+  }
+
+  .home-content p {
+    font-size: 14px;
+  }
+}
