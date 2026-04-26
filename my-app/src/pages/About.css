@@ -1,0 +1,433 @@
+/* About Section */
+.about {
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #0f172a 0%, #1a1f3a 100%);
+  color: white;
+}
+
+.about-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Section Header */
+.about-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-badge {
+  display: inline-block;
+  background: rgba(56, 189, 248, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 24px;
+  color: #38bdf8;
+  margin-bottom: 16px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.about-header h2 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #ffffff, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-header p {
+  color: #94a3b8;
+  font-size: 18px;
+}
+
+/* About Content Layout */
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 50px;
+}
+
+/* Bio Section */
+.about-bio {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+.about-bio h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #38bdf8;
+}
+
+.about-bio p {
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 20px;
+}
+
+/* Personal Info Grid */
+.personal-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin: 30px 0;
+  padding: 20px 0;
+  border-top: 1px solid rgba(56, 189, 248, 0.1);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-label {
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+.info-item span:last-child {
+  font-weight: 600;
+  color: #38bdf8;
+}
+
+/* Download CV Button */
+.download-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #38bdf8, #818cf8);
+  border: none;
+  border-radius: 40px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.download-cv-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+  gap: 15px;
+}
+
+/* Tabs Section */
+.about-tabs {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  overflow: hidden;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 16px 20px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tab-btn:hover {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.05);
+}
+
+.tab-btn.active {
+  color: #38bdf8;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+}
+
+/* Skills Content */
+.skills-content {
+  padding: 30px;
+  max-height: 550px;
+  overflow-y: auto;
+}
+
+.skill-category {
+  margin-bottom: 30px;
+}
+
+.skill-category h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #38bdf8;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.skill-card {
+  margin-bottom: 20px;
+}
+
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.skill-icon {
+  font-size: 20px;
+}
+
+.skill-name {
+  flex: 1;
+  font-weight: 500;
+}
+
+.skill-percent {
+  font-size: 14px;
+  color: #38bdf8;
+}
+
+.skill-bar {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  border-radius: 10px;
+  animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0;
+  }
+}
+
+/* Experience Content */
+.experience-content {
+  padding: 30px;
+  max-height: 550px;
+  overflow-y: auto;
+}
+
+.experience-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateX(5px);
+  background: rgba(56, 189, 248, 0.05);
+}
+
+.exp-header {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.exp-icon {
+  font-size: 32px;
+}
+
+.exp-info h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #38bdf8;
+}
+
+.exp-company {
+  font-size: 14px;
+  color: #94a3b8;
+  margin-bottom: 5px;
+}
+
+.exp-period {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.exp-description {
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.exp-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tech-tag {
+  background: rgba(56, 189, 248, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #38bdf8;
+}
+
+/* Certificates Content */
+.certificates-content {
+  padding: 30px;
+  max-height: 550px;
+  overflow-y: auto;
+}
+
+.certificates-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.certificate-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 15px;
+  transition: all 0.3s ease;
+}
+
+.certificate-card:hover {
+  background: rgba(56, 189, 248, 0.1);
+  transform: translateX(5px);
+}
+
+.cert-icon {
+  font-size: 32px;
+}
+
+.cert-info {
+  flex: 1;
+}
+
+.cert-info h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.cert-issuer {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-bottom: 5px;
+}
+
+.cert-meta {
+  display: flex;
+  gap: 15px;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.view-cert-btn {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: #38bdf8;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-cert-btn:hover {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+/* Scrollbar Styling */
+.skills-content::-webkit-scrollbar,
+.experience-content::-webkit-scrollbar,
+.certificates-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.skills-content::-webkit-scrollbar-track,
+.experience-content::-webkit-scrollbar-track,
+.certificates-content::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.skills-content::-webkit-scrollbar-thumb,
+.experience-content::-webkit-scrollbar-thumb,
+.certificates-content::-webkit-scrollbar-thumb {
+  background: #38bdf8;
+  border-radius: 10px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about {
+    padding: 60px 6%;
+  }
+  
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-header h2 {
+    font-size: 32px;
+  }
+  
+  .personal-info {
+    grid-template-columns: 1fr;
+  }
+  
+  .tab-btn {
+    font-size: 14px;
+    padding: 12px;
+  }
+  
+  .skills-content,
+  .experience-content,
+  .certificates-content {
+    padding: 20px;
+  }
+  
+  .certificate-card {
+    flex-wrap: wrap;
+  }
+  
+  .view-cert-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
