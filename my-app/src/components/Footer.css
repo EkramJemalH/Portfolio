@@ -1,0 +1,18 @@
+.footer{
+    text-align: center;
+}
+.footer p {
+    color: rgb(189, 184, 184);
+    margin-bottom: 10px;
+}
+.footer .icon {
+  font-size: 24px;
+  margin: 0 10px;
+  color: rgb(189, 184, 184);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer .icon:hover {
+  transform: scale(1.2);
+  color: #00bcd4;
+}

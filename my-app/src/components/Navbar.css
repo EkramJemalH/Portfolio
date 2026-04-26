@@ -7,24 +7,38 @@
   color: white;
 }
 
+/* Logo */
 .logo {
   font-size: 20px;
   font-weight: bold;
+  color: white;
 }
 
+/* Nav list */
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   list-style: none;
 }
 
-.nav-links li {
-  cursor: pointer;
+/* IMPORTANT: remove underline from links */
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-size: 15px;
 }
 
-.nav-links li:hover {
+/* Hover effect */
+.nav-links a:hover {
   color: #38bdf8;
+  transform: scale(1.1);
 }
-.nav-links li.active {
+
+/* Active link (current page) */
+.nav-links a.active {
   color: #38bdf8;
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }
