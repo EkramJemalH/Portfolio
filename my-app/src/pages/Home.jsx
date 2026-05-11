@@ -20,7 +20,12 @@ function Home() {
           <span>React</span>
           <span>UI/UX</span>
           <span>JavaScript</span>
-          <span>Tailwind</span>
+          <span>CSS</span>
+          <span>HTML</span>
+          <span>Figma</span>
+          <span>Git</span>
+          <span>DataBase</span>
+          <span>Fire Base</span>
         </div>
         
         <div className="home-buttons">
