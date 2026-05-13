@@ -1,25 +1,61 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CaseStudy.css";
 
-// Comment out the imports until you add the actual images
-// import HomepageImg from "../assets/HomePage.png";
-// import BrowseImg from "../assets/Browse.png";
-// import SignupImg from "../assets/Signup.png";
-// import PostAdImg from "../assets/PostAd.png";
-// import ProfileImg from "../assets/Profile.png";
+// Import the actual images
+import HomepageImg from "../assets/HomePage.png";
+import BrowseImg from "../assets/Browser.png";
+import SignupImg from "../assets/Signup.png";
+import PostAdImg from "../assets/PostAd.png";
+import ProfileImg from "../assets/Profile.png";
 
 function CraigslistCaseStudy() {
   const navigate = useNavigate();
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const openModal = (imageSrc, imageAlt) => {
+    setSelectedImage({ src: imageSrc, alt: imageAlt });
+    setIsModalOpen(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+    document.body.style.overflow = "unset";
+  };
+
+  // Handle escape key press
+  useEffect(() => {
+    const handleEscKey = (e) => {
+      if (e.key === "Escape" && isModalOpen) {
+        closeModal();
+      }
+    };
+    window.addEventListener("keydown", handleEscKey);
+    return () => window.removeEventListener("keydown", handleEscKey);
+  }, [isModalOpen]);
+
   return (
     <main className="case-study">
       <div className="case-study-container">
         
+        {/* Modal for image preview */}
+        {isModalOpen && (
+          <div className="image-modal" onClick={closeModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={closeModal}>×</button>
+              <img src={selectedImage?.src} alt={selectedImage?.alt} className="modal-image" />
+              <p className="modal-caption">{selectedImage?.alt}</p>
+            </div>
+          </div>
+        )}
+
         {/* Back Button */}
         <div className="back-button">
           <button onClick={() => navigate("/projects")} className="back-btn">
@@ -353,15 +389,23 @@ function CraigslistCaseStudy() {
             <h2>Final UI Screens</h2>
           </div>
           <p className="section-intro">
-            The final redesign focused on the core flows that matter most to users.
+            The final redesign focused on the core flows that matter most to users. Click on any image to view full size.
           </p>
 
           <div className="final-screens-grid">
             <div className="screen-card">
-              <div className="screen-image">
-                <div className="image-placeholder final">
-                  <span className="placeholder-icon">🏠</span>
-                  <p>Redesigned Homepage</p>
+              <div 
+                className="screen-image clickable"
+                onClick={() => openModal(HomepageImg, "Redesigned Craigslist Homepage")}
+              >
+                <img 
+                  src={HomepageImg} 
+                  alt="Redesigned Craigslist Homepage" 
+                  className="final-screen-img"
+                />
+                <div className="image-overlay">
+                  <span className="zoom-icon">🔍</span>
+                  <span>Click to enlarge</span>
                 </div>
               </div>
               <h4>Homepage</h4>
@@ -372,10 +416,18 @@ function CraigslistCaseStudy() {
             </div>
             
             <div className="screen-card">
-              <div className="screen-image">
-                <div className="image-placeholder final">
-                  <span className="placeholder-icon">🔍</span>
-                  <p>Browse & Search Page</p>
+              <div 
+                className="screen-image clickable"
+                onClick={() => openModal(BrowseImg, "Browse and Search Page")}
+              >
+                <img 
+                  src={BrowseImg} 
+                  alt="Browse and Search Page" 
+                  className="final-screen-img"
+                />
+                <div className="image-overlay">
+                  <span className="zoom-icon">🔍</span>
+                  <span>Click to enlarge</span>
                 </div>
               </div>
               <h4>Listings / Browse Page</h4>
@@ -386,10 +438,39 @@ function CraigslistCaseStudy() {
             </div>
             
             <div className="screen-card">
-              <div className="screen-image">
-                <div className="image-placeholder final">
-                  <span className="placeholder-icon">📝</span>
-                  <p>Post an Ad Form</p>
+              <div 
+                className="screen-image clickable"
+                onClick={() => openModal(SignupImg, "Sign Up and Login Page")}
+              >
+                <img 
+                  src={SignupImg} 
+                  alt="Sign Up and Login Page" 
+                  className="final-screen-img"
+                />
+                <div className="image-overlay">
+                  <span className="zoom-icon">🔍</span>
+                  <span>Click to enlarge</span>
+                </div>
+              </div>
+              <h4>Sign Up / Login</h4>
+              <p>
+                A streamlined authentication flow that makes account creation and login quick and intuitive.
+              </p>
+            </div>
+
+            <div className="screen-card">
+              <div 
+                className="screen-image clickable"
+                onClick={() => openModal(PostAdImg, "Post an Ad Form")}
+              >
+                <img 
+                  src={PostAdImg} 
+                  alt="Post an Ad Form" 
+                  className="final-screen-img"
+                />
+                <div className="image-overlay">
+                  <span className="zoom-icon">🔍</span>
+                  <span>Click to enlarge</span>
                 </div>
               </div>
               <h4>Post an Ad</h4>
@@ -398,93 +479,47 @@ function CraigslistCaseStudy() {
                 browsing behavior.
               </p>
             </div>
+
+            <div className="screen-card">
+              <div 
+                className="screen-image clickable"
+                onClick={() => openModal(ProfileImg, "User Profile Page")}
+              >
+                <img 
+                  src={ProfileImg} 
+                  alt="User Profile Page" 
+                  className="final-screen-img"
+                />
+                <div className="image-overlay">
+                  <span className="zoom-icon">🔍</span>
+                  <span>Click to enlarge</span>
+                </div>
+              </div>
+              <h4>User Profile</h4>
+              <p>
+                A centralized dashboard for managing listings, account settings, and user activity.
+              </p>
+            </div>
           </div>
         </section>
 
-        {/* ========== UI DESIGN SHOWCASE ========== */}
-        <section className="case-section showcase-section">
-          <div className="section-header">
-            <span className="section-number">08</span>
-            <h2>UI Design Showcase</h2>
-          </div>
-          <p className="section-intro">
-            Here are the complete UI designs with all key screens and components I redesigned for Craigslist.
-          </p>
-
-          <div className="showcase-grid">
-            <div className="showcase-item">
-              <div className="showcase-image">
-                <div className="image-placeholder showcase-placeholder">
-                  <span className="placeholder-icon">🏠</span>
-                  <p>Homepage Design</p>
-                </div>
-              </div>
-              <p>🏠 Homepage</p>
-              <span className="showcase-tag">Landing Page</span>
-            </div>
-            
-            <div className="showcase-item">
-              <div className="showcase-image">
-                <div className="image-placeholder showcase-placeholder">
-                  <span className="placeholder-icon">🔍</span>
-                  <p>Browse & Search</p>
-                </div>
-              </div>
-              <p>🔍 Browse & Search</p>
-              <span className="showcase-tag">Listings Page</span>
-            </div>
-            
-            <div className="showcase-item">
-              <div className="showcase-image">
-                <div className="image-placeholder showcase-placeholder">
-                  <span className="placeholder-icon">📝</span>
-                  <p>Sign Up / Login</p>
-                </div>
-              </div>
-              <p>📝 Sign Up / Login</p>
-              <span className="showcase-tag">Authentication</span>
-            </div>
-            
-            <div className="showcase-item">
-              <div className="showcase-image">
-                <div className="image-placeholder showcase-placeholder">
-                  <span className="placeholder-icon">📌</span>
-                  <p>Post an Ad</p>
-                </div>
-              </div>
-              <p>📌 Post an Ad</p>
-              <span className="showcase-tag">Listing Creation</span>
-            </div>
-            
-            <div className="showcase-item">
-              <div className="showcase-image">
-                <div className="image-placeholder showcase-placeholder">
-                  <span className="placeholder-icon">👤</span>
-                  <p>User Profile</p>
-                </div>
-              </div>
-              <p>👤 User Profile</p>
-              <span className="showcase-tag">Account Management</span>
-            </div>
-          </div>
-          
-          <div className="view-figma-btn-container">
-            <a 
-              href="https://www.figma.com/design/jvmMKSiiHMgMIMO5LQvDQB/Craigslist?node-id=2-9&t=wbl5nwvmxDClsH5i-1" 
-              className="view-figma-btn" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              🎨 View Complete UI Design on Figma
-              <span className="btn-arrow">→</span>
-            </a>
-          </div>
-        </section>
+        {/* ========== FIGMA BUTTON ========== */}
+        <div className="view-figma-btn-container">
+          <a 
+            href="https://www.figma.com/design/jvmMKSiiHMgMIMO5LQvDQB/Craigslist?node-id=2-9&t=wbl5nwvmxDClsH5i-1" 
+            className="view-figma-btn" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
+            🎨 View Complete UI Design on Figma
+            <span className="btn-arrow">→</span>
+          </a>
+        </div>
 
         {/* ========== OUTCOME SECTION ========== */}
         <section className="case-section outcome-section">
           <div className="section-header">
-            <span className="section-number">09</span>
+            <span className="section-number">08</span>
             <h2>Outcome</h2>
           </div>
           
@@ -505,7 +540,7 @@ function CraigslistCaseStudy() {
         {/* ========== REFLECTION SECTION ========== */}
         <section className="case-section reflection-section">
           <div className="section-header">
-            <span className="section-number">10</span>
+            <span className="section-number">09</span>
             <h2>Reflection</h2>
           </div>
           
@@ -547,7 +582,7 @@ function CraigslistCaseStudy() {
         {/* ========== FIGMA PROTOTYPE SECTION ========== */}
         <section className="case-section figma-section">
           <div className="section-header">
-            <span className="section-number">11</span>
+            <span className="section-number">10</span>
             <h2>Figma Prototype</h2>
           </div>
           <p className="section-intro">

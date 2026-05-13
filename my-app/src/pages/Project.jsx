@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Craigslist from "../assets/craigslist.png";
-// REMOVE: import CraigslistCaseStudy from "./CraigslistCaseStudy";
+import EventifyImg from "../assets/eventify.png"; // Add your Eventify image
+
 import "./Project.css";
 
 function Project() {
@@ -17,18 +18,18 @@ function Project() {
       image: Craigslist,
       tags: ["UI Design", "UX Research", "Marketplace", "Redesign"],
       hasCaseStudy: true,
-      caseStudyLink: "/case-study/craigslist", // ← FIXED: Just the path string
+      caseStudyLink: "/case-study/craigslist",
       year: "2024"
     },
     {
       id: 2,
-      title: "Project 2 Name",
-      category: "UI/UX Design",
-      description: "Your second project description here",
-      image: "/images/project2-mockup.png",
-      tags: ["UI Design", "Prototyping", "User Flow"],
+      title: "Eventify - Event Discovery App",
+      category: "Mobile App Design",
+      description: "A modern mobile app that helps users discover, track, and attend upcoming events in their area with personalized recommendations.",
+      image: EventifyImg,
+      tags: ["Mobile Design", "Event Discovery", "User Experience", "Prototyping"],
       hasCaseStudy: false,
-      caseStudyLink: "/case-study/project2",
+      projectLink: "/projects/eventify", // Link to detailed view
       year: "2024"
     }
   ];
@@ -86,7 +87,12 @@ function Project() {
                   <img src={project.image} alt={project.title} />
                   {project.hasCaseStudy && (
                     <div className="case-study-badge">
-                      <span>📖</span> Case Study
+                      <span>📖</span> Case Study/Web app
+                    </div>
+                  )}
+                  {!project.hasCaseStudy && (
+                    <div className="project-badge">
+                      <span>📱</span> Mobile App
                     </div>
                   )}
                 </div>
@@ -106,10 +112,17 @@ function Project() {
                     ))}
                   </div>
                   
-                  <Link to={project.caseStudyLink} className="view-case-btn">
-                    View Case Study
-                    <span className="btn-arrow">→</span>
-                  </Link>
+                  {project.hasCaseStudy ? (
+                    <Link to={project.caseStudyLink} className="view-case-btn">
+                      View Case Study
+                      <span className="btn-arrow">→</span>
+                    </Link>
+                  ) : (
+                    <Link to={project.projectLink} className="view-case-btn secondary">
+                      View Details
+                      <span className="btn-arrow">→</span>
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}
