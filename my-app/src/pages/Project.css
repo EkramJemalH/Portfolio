@@ -534,3 +534,47 @@
     font-size: 10px;
   }
 }
+
+/* Project Links Container */
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Status Badge Styles */
+.status-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  z-index: 10;
+}
+
+.status-badge.completed {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+
+/* Make project-image position relative for absolute positioning of badges */
+.project-image {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Make secondary button style for GitHub link */
+.view-case-btn.secondary {
+  background: transparent;
+  border: 2px solid var(--primary-color, #6366f1);
+  color: var(--primary-color, #6366f1);
+}
+
+.view-case-btn.secondary:hover {
+  background: var(--primary-color, #6366f1);
+  color: white;
+  transform: translateY(-2px);
+}

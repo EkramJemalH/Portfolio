@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Craigslist from "../assets/craigslist.png";
-import EventifyImg from "../assets/eventify.png"; // Add your Eventify image
+import EventifyImg from "../assets/eventify.png";
+import CartifyImg from "../assets/cartify.png";
+import QuizzyImg from "../assets/Quizzy.png";
+import PortfolioImg from "../assets/portfolio.png"; // Add your portfolio image
 
 import "./Project.css";
 
@@ -29,28 +32,56 @@ function Project() {
       image: EventifyImg,
       tags: ["Mobile Design", "Event Discovery", "User Experience", "Prototyping"],
       hasCaseStudy: false,
-      projectLink: "/projects/eventify", // Link to detailed view
+      projectLink: "/projects/eventify",
       year: "2024"
     }
   ];
 
-  // Frontend Projects Data (Coming Soon)
+  // Frontend Projects Data
   const frontendProjects = [
     {
       id: 3,
-      title: "Cartify React App",
-      category: "Frontend Development",
-      description: "Full e-commerce platform built with React",
-      image: "/images/cartify-frontend.png",
-      tags: ["React", "LocalStorage", "Responsive"],
-      status: "in-progress",
-      completion: 75,
+      title: "Cartify - E-commerce Website",
+      category: "Frontend E-commerce",
+      description: "A modern, responsive e-commerce frontend application that integrates with REST APIs for product data, user authentication, and order management. Built with React and Vite.",
+      image: CartifyImg,
+      tags: ["React", "Vite", "API Integration", "Context API", "Responsive"],
+      status: "completed",
+      liveLink: "https://cartify-ecommerce-site.vercel.app/",
+      githubLink: "https://github.com/EkramJemalH/Cartify_Ecommerce_Site",
+      figmaLink: "https://www.figma.com/design/ZmcEdgamVaY1AO43eZPDPq/Cartify",
       year: "2024"
+    },
+    {
+      id: 4,
+      title: "Quizzy - Interactive Quiz App",
+      category: "Frontend Web App",
+      description: "An interactive quiz application that fetches questions from Open Trivia DB API. Users can select categories and difficulty levels, answer questions one at a time, and receive their final score with answer review.",
+      image: QuizzyImg,
+      tags: ["React", "API Integration", "React Router", "Dynamic Routing", "Responsive"],
+      status: "completed",
+      liveLink: "https://quiz-app-quizzy.netlify.app/",
+      githubLink: "https://github.com/EkramJemalH/ALX-Capstone-project",
+      figmaLink: "https://www.figma.com/design/OlPCvSQWf3GbdNaz01dj8J/Capstone-project-desgin",
+      year: "2024"
+    },
+    {
+      id: 5,
+      title: "My Portfolio Website",
+      category: "Frontend Development",
+      description: "A modern, responsive portfolio website showcasing my work as a Frontend Developer and UI/UX Designer. Built with React, featuring smooth scrolling, project showcases, and a contact section.",
+      image: PortfolioImg,
+      tags: ["React", "CSS", "Responsive Design", "Portfolio", "SPA"],
+      status: "completed",
+      liveLink: "https://your-portfolio-url.vercel.app/", // Replace with your actual portfolio URL
+      githubLink: "https://github.com/EkramJemalH/your-portfolio-repo", // Replace with your actual GitHub repo
+      figmaLink: "https://www.figma.com/design/your-figma-link", // Add your Figma design link if you have one
+      year: "2025"
     }
   ];
 
   return (
-    <main className="projects">
+    <main className="projects" id="projects">
       <div className="projects-container">
         
         {/* Section Header */}
@@ -133,12 +164,14 @@ function Project() {
         {selectedCategory === "frontend" && (
           <div className="projects-grid">
             {frontendProjects.map((project) => (
-              <div key={project.id} className="project-card coming-soon-card">
+              <div key={project.id} className="project-card">
                 <div className="project-image">
                   <img src={project.image} alt={project.title} />
-                  <div className="status-badge in-progress">
-                    🚧 In Progress
-                  </div>
+                  {project.status === "completed" && (
+                    <div className="status-badge completed">
+                      ✅ Live Demo
+                    </div>
+                  )}
                 </div>
                 
                 <div className="project-content">
@@ -156,36 +189,40 @@ function Project() {
                     ))}
                   </div>
                   
-                  {/* Progress Bar */}
-                  <div className="progress-section">
-                    <div className="progress-label">
-                      <span>Completion Progress</span>
-                      <span>{project.completion}%</span>
-                    </div>
-                    <div className="progress-bar">
-                      <div 
-                        className="progress-fill" 
-                        style={{ width: `${project.completion}%` }}
-                      ></div>
-                    </div>
+                  <div className="project-links">
+                    <a 
+                      href={project.liveLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="view-case-btn"
+                    >
+                      Live Demo
+                      <span className="btn-arrow">→</span>
+                    </a>
+                    <a 
+                      href={project.githubLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="view-case-btn secondary"
+                    >
+                      GitHub
+                      <span className="btn-arrow">→</span>
+                    </a>
+                    {project.figmaLink && (
+                      <a 
+                        href={project.figmaLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="view-case-btn secondary"
+                      >
+                        Figma Design
+                        <span className="btn-arrow">→</span>
+                      </a>
+                    )}
                   </div>
-                  
-                  <button className="reserved-btn" disabled>
-                    🔄 Coming Soon - Under Construction
-                  </button>
                 </div>
               </div>
             ))}
-            
-            {/* Reserved Spot for Future Projects */}
-            <div className="project-card reserved-spot-card">
-              <div className="reserved-content">
-                <div className="plus-icon">+</div>
-                <h3>More Projects Coming</h3>
-                <p>I'm currently working on exciting new projects. Stay tuned!</p>
-                <div className="reserved-placeholder"></div>
-              </div>
-            </div>
           </div>
         )}
       </div>
