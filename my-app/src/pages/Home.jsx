@@ -1,6 +1,14 @@
 import "./Home.css";
-import profileImage from "../assets/profile.jpg"; 
+import profileImage from "../assets/profile.jpg";
+import { useNavigate } from "react-router-dom";
+
 function Home() {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
   return (
     <section className="home">
       <div className="home-content">
@@ -29,11 +37,17 @@ function Home() {
         </div>
         
         <div className="home-buttons">
-          <button className="btn-primary">
+          <button 
+            className="btn-primary"
+            onClick={() => handleNavigation("/projects")}
+          >
             View Projects
             <span>→</span>
           </button>
-          <button className="btn-secondary">
+          <button 
+            className="btn-secondary"
+            onClick={() => handleNavigation("/contact")}
+          >
             Contact Me
           </button>
         </div>
