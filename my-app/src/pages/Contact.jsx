@@ -1,33 +1,9 @@
 import "./Contact.css";
-import { useState } from "react";
+
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: ""
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // This opens email client with pre-filled message
-    const subject = `Portfolio Message from ${formData.name}`;
-    const body = `Name: ${formData.name}%0A%0AEmail: ${formData.email}%0A%0AMessage:%0A${formData.message}`;
-    window.location.href = `mailto:ekramjemalh@gmail.com?subject=${subject}&body=${body}`;
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
-  };
-
-  // WhatsApp link with your number (0912034013 -> 251912034013)
-  const whatsappNumber = "251912034013"; // 251 + 912034013
+  // WhatsApp link with your number
+  const whatsappNumber = "251912034013";
   const whatsappLink = `https://wa.me/${whatsappNumber}`;
 
   // Telegram link
@@ -61,7 +37,7 @@ function Contact() {
               Feel free to reach out through any of these channels.
             </p>
 
-            {/* WhatsApp - Safe way without exposing number */}
+            {/* WhatsApp */}
             <div className="contact-method">
               <div className="contact-icon">💬</div>
               <div className="contact-details">
@@ -138,64 +114,8 @@ function Contact() {
                 >
                   <span>🐦</span> Twitter/X
                 </a>
-            
               </div>
             </div>
-          </div>
-
-          {/* Right Column - Contact Form */}
-          <div className="contact-form-container">
-            <h3>Send a Message</h3>
-            <form onSubmit={handleSubmit} className="contact-form">
-              <div className="form-group">
-                <label htmlFor="name">Your Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="John Doe"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="email">Email Address</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="john@example.com"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="message">Your Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="5"
-                  placeholder="Hi Ekram, I'd like to talk about..."
-                ></textarea>
-              </div>
-
-              <button type="submit" className="submit-btn">
-                Send Message ✨
-              </button>
-
-              {isSubmitted && (
-                <div className="success-message">
-                  ✓ Opening your email client! Thank you for reaching out.
-                </div>
-              )}
-            </form>
           </div>
         </div>
       </div>

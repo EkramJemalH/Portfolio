@@ -55,7 +55,7 @@ function Eventify() {
   };
 
   return (
-    <main className="eventify-page">
+    <main className="eventify-page" id="eventify-page">
       <div className="eventify-container">
         
         {/* Back Button */}
@@ -549,12 +549,9 @@ function Eventify() {
             ← All Projects
           </button>
           
-          <div className="project-pagination">
-            <span className="page-indicator">Eventify</span>
-          </div>
          
           <button onClick={() => navigate("/case-study/craigslist")} className="nav-btn nav-next">
-            Next Project: Craigslist Redesign →
+            Previous Project: Craigslist Redesign 
           </button>
         </div>
       </div>

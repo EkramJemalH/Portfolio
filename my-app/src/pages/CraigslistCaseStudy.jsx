@@ -615,7 +615,7 @@ function CraigslistCaseStudy() {
           <button onClick={() => navigate("/projects")} className="nav-btn nav-prev">
             ← All Projects
           </button>
-          <button onClick={() => navigate("/case-study/project2")} className="nav-btn nav-next">
+          <button onClick={() => navigate("/projects/eventify")} className="nav-btn nav-next">
             Next Project →
           </button>
         </div>

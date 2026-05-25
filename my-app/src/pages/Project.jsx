@@ -71,11 +71,10 @@ function Project() {
       category: "Frontend Development",
       description: "A modern, responsive portfolio website showcasing my work as a Frontend Developer and UI/UX Designer. Built with React, featuring smooth scrolling, project showcases, and a contact section.",
       image: PortfolioImg,
-      tags: ["React", "CSS", "Responsive Design", "Portfolio", "SPA"],
+      tags: ["React", "CSS", "Responsive Design", "Portfolio"],
       status: "completed",
       liveLink: "https://your-portfolio-url.vercel.app/", // Replace with your actual portfolio URL
-      githubLink: "https://github.com/EkramJemalH/your-portfolio-repo", // Replace with your actual GitHub repo
-      figmaLink: "https://www.figma.com/design/your-figma-link", // Add your Figma design link if you have one
+      githubLink: "https://github.com/EkramJemalH/Portfolio",
       year: "2025"
     }
   ];
