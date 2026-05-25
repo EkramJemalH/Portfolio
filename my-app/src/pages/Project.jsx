@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import Craigslist from "../assets/craigslist.png";
+import Craigslist from "../assets/Craigslist.png";
 import EventifyImg from "../assets/eventify.png";
 import CartifyImg from "../assets/cartify.png";
 import QuizzyImg from "../assets/Quizzy.png";
