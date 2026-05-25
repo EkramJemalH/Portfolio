@@ -1,0 +1,9 @@
+{
+  "name": "portfolio-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix my-app run dev",
+    "build": "npm --prefix my-app run build && node move-dist.js",
+    "preview": "npm --prefix my-app run preview"
+  }
+}
