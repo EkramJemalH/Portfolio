@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Craigslist from "../assets/Craigslist.png";
 import EventifyImg from "../assets/eventify.png";
-import CartifyImg from "../assets/cartify.png";
+import CartifyImg from "../assets/Cartify.png";
 import QuizzyImg from "../assets/Quizzy.png";
 import PortfolioImg from "../assets/portfolio.png"; // Add your portfolio image
 
