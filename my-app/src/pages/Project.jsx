@@ -73,7 +73,7 @@ function Project() {
       image: PortfolioImg,
       tags: ["React", "CSS", "Responsive Design", "Portfolio"],
       status: "completed",
-      liveLink: "https://your-portfolio-url.vercel.app/", // Replace with your actual portfolio URL
+      liveLink: "https://ekramsportfolio.netlify.app/",
       githubLink: "https://github.com/EkramJemalH/Portfolio",
       year: "2025"
     }
